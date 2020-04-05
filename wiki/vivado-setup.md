@@ -34,7 +34,7 @@ git folder without adding all of the rubbish that Vivado normally adds.
 Follow the same process for the constraints file. NOTE: Same as above the `Copy sources into project` box is not ticked
 
 ## 5. Configure Board
-<img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/board-type.png" width="auto" height="auto"/>
+<img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/board-config.png" width="auto" height="auto"/>
 
 Finally select the correct board. We want `xc7a100tcsg324-3`
 
