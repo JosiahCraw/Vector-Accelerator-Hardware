@@ -40,7 +40,7 @@ The wonderful Jessie Sheehan has very kindly written a python script that will a
 [here](https://github.com/jpsheehan/vivado-xpr-fixer). I have packaged the script and made it available on PyPI as a script so you can either run from source, 
 the directions for which are available in Jessie's repository or use `pip`.
 
-<img alt="File structure" src="https://storage.googleapis.com/enle373students/pip-install.png" width="auto" height="250"/>
+<img alt="File structure" src="https://storage.googleapis.com/enle373students/pip-install-fixed.png" width="auto" height="250"/>
 
 Remember that to use this script you must have python installed, for the Linux users install using your preferred package manager for Windows the download can be found [here](https://www.python.org/downloads/windows/) Note: The script has only been tested for Python3 so make sure that is the version you have installed.
 
