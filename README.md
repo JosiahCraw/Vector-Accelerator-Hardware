@@ -36,7 +36,7 @@ The tutors will also endeavour to add answers to commonly answered questions the
 <a name="tools"></a>
 
 ## 5. Tools
-The wonderful Jessie Sheehan has very kindly written a python script that will automatically fix the paths for the Vivado `.xpr` files the source code for which can be found 
+The wonderful Jesse Sheehan has very kindly written a python script that will automatically fix the paths for the Vivado `.xpr` files the source code for which can be found 
 [here](https://github.com/jpsheehan/vivado-xpr-fixer). I have packaged the script and made it available on PyPI as a script so you can either run from source, 
 the directions for which are available in Jessie's repository or use `pip`.
 
