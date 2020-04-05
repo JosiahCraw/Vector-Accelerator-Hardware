@@ -31,7 +31,7 @@ you make the Vivado project in a different location on your computer to the sour
 
 ## 4. Help
 The tutors will still be available to help you however, we will be moving to an online drop in session format within lab hours. If you have questions/concerns outside of lab times please post on the Learn forum the tutors and lecturers for the course are happy to answer your question there.
-The tutors will also endeavour to add answers to commonly answered questions the [Wiki]()
+The tutors will also endeavour to add answers to commonly answered questions the [Wiki](https://eng-git.canterbury.ac.nz/jcr124/ENEL373-Template/wikis/home)
 
 <a name="tools"></a>
 
