@@ -21,7 +21,7 @@ Please use the commands below to setup your code inside this structure.
 <img alt="Git Instructions for setting up your repo" src="https://storage.googleapis.com/enle373students/git-instructions.png" width="auto" height="600"/>
 
 ## 3. Adding files to Vivado
-There are two options for adding the git files into your project, the first is to do a manual copy, the second is to use Jessie's awesome script which is discussed further in the 
+There are two options for adding the git files into your project, the first is to do a manual copy, the second is to use Jesse's awesome script which is discussed further in the 
 [Tools](#tools) section.
 
 ### 3.1 Manually copying files
@@ -38,7 +38,7 @@ please post on the Learn forum the tutors and lecturers for the course are happy
 ## 5. Tools
 The wonderful Jesse Sheehan has very kindly written a python script that will automatically fix the paths for the Vivado `.xpr` files the source code for which can be found 
 [here](https://github.com/jpsheehan/vivado-xpr-fixer). I have packaged the script and made it available on PyPI as a script so you can either run from source, 
-the directions for which are available in Jessie's repository or use `pip`.
+the directions for which are available in Jesse's repository or use `pip`.
 
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/pip-install-fixed.png" width="auto" height="250"/>
 
