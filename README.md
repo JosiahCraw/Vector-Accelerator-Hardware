@@ -13,7 +13,7 @@ Your file structure should look something like this:
 
 ## 2. Test-benches
 As you should have seen, the assignment has been changed rather significantly due to the COVID-19 pandemic. As a result the ENEL373 Assignment has been changed significantly. This has affected the way that the marking is done, the tutors technical marking requirements are now in the form of available test-benches. This
-has been done to hopefully make everyone's life a little easier. This means that you will no longer be required to produce an overall top level design. Instead we will be marking use the test-benches found in the test-benches [directory](testbenches/). More info about these test-benches can be found in this directory
+has been done to hopefully make everyone's life a little easier. This means that we will be marking using the test-benches found in the test-benches [directory](testbenches/). More info about these test-benches can be found in this directory
 
 ## Setting up your repository
 Please use the commands below to setup your code inside this structure.
@@ -30,8 +30,8 @@ To assist with this there is a quick refresher found [here](wiki/vivado-setup.md
 you make the Vivado project in a different location on your computer to the source files and make sure the box is unchecked for `copy sources into project`
 
 ## 4. Help
-The tutors will still be available to help you however, we will be moving to an online drop in session format within lab hours. If you have questions/concerns outside of lab times please post on the Learn forum the tutors and lecturers for the course are happy to answer your question there.
-The tutors will also endeavour to add answers to commonly answered questions the [Wiki](https://eng-git.canterbury.ac.nz/jcr124/ENEL373-Template/wikis/home)
+The tutors will still be available to help you however, we will be moving to an online drop in session format within lab hours. If you have questions/concerns outside of lab times 
+please post on the Learn forum the tutors and lecturers for the course are happy to answer your question there.
 
 <a name="tools"></a>
 
@@ -45,19 +45,18 @@ the directions for which are available in Jessie's repository or use `pip`.
 Remember that to use this script you must have python installed, for the Linux users install using your preferred package manager for Windows the download can be found [here](https://www.python.org/downloads/windows/) Note: The script has only been tested for Python3 so make sure that is the version you have installed.
 
 ### 5.1 GHDL
-For those interested there is a project called GHDL that allows you to compile VHDL files into C. This can make testing easier, however it is in no way expected for you to know about this. However if you would like to invesigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or automated using CI/CD pipelines
+For those interested there is a project called GHDL that allows you to compile VHDL files into C. This can make testing easier, however it is in no way expected for you to know 
+about this. However if you would like to invesigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or
+ automated using CI/CD pipelines
 
 -   [GHDL](https://github.com/ghdl/ghdl)
--   [Docker Repo]()
+-   [GHDL Docker](https://github.com/ghdl/docker)
 
 ## 6. Authors
 Jos Craw <jcr124@uclive.ac.nz>
 
 ## TODO
--   Do we want an installing Vivado writeup, with pictures etc. I can do one in a similar style to the [vivado-setup.md](wiki/vivado-setup.md)?
--   Do we want to use git lab wiki?
--   Do we want to talk about GitLAb issues
+-   Do we want to talk about GitLAb issues?
 -   Am I talking too much about the assignment?
--   Create Repo containing GHDL scripts (PRobably using CMake or Makefile to build) 
 -   Include adding testbench sources into a Vivado project. (Would look better once the test benches are done)
 -   Should we add a .gitignore and a gitignore document
