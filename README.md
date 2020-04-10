@@ -1,5 +1,5 @@
 # ENEL373 Assignment
-This repo is arranged in the same way that is expected for the ENEL373 2020 Assiginment submission.
+This repo is arranged in the same way that is expected for the ENEL373 2020 Assignment submission.
 It is expected that students use this format while working on the assignment as it decreases the
 number of files on Eng Git as well as the amount of storage used. Tutors will also expect this layout when helping you, we don't
 want to clog up our computers with endless cached/sim/run files.
@@ -46,7 +46,7 @@ Remember that to use this script you must have python installed, for the Linux u
 
 ### 5.1 GHDL
 For those interested there is a project called GHDL that allows you to compile VHDL files into C. This can make testing easier, however it is in no way expected for you to know 
-about this. However if you would like to invesigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or
+about this. However if you would like to investigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or
  automated using CI/CD pipelines
 
 -   [GHDL](https://github.com/ghdl/ghdl)
@@ -56,7 +56,7 @@ about this. However if you would like to invesigate this I will include a few li
 Jos Craw <jcr124@uclive.ac.nz>
 
 ## TODO
--   Do we want to talk about GitLAb issues?
+-   Do we want to talk about GitLab issues?
 -   Am I talking too much about the assignment?
 -   Include adding testbench sources into a Vivado project. (Would look better once the test benches are done)
 -   Should we add a .gitignore and a gitignore document
