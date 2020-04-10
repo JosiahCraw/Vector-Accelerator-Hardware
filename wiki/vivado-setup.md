@@ -12,22 +12,26 @@ This is a quick run through of how to create a new Vivado project and import you
 ## 1. Create a new Project
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/create-project.png" width="auto" height="auto"/>
 
-Launch Xilinx Vivado and click `Create Project`
+Launch Xilinx Vivado and click `Create Project`. Then click `Next >`.
 
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/new-project-path.png" width="auto" height="auto"/>
+Give the project a sensible name and location, as I have done in the example shown above.
 
-NOTE: This project is in a different location to my ENEL373-Template folder which is in `/home/USER/Projects/ENEL373-Template`
+NOTE: This project is in a different location to my ENEL373-Template folder which is in `/home/USER/Projects/ENEL373-Template`.
+This is intentional.
 
 ## 2. Configure Project
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/rtl-project.png" width="auto" height="auto"/>
 
-Specify the project type as `RTL Project`
+Specify the project type as `RTL Project`.
 
 ## 3. Import Sources
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/import_sources.png" width="auto" height="auto"/>
 
-Import your existing `.vhd` sources from your new folder. NOTE: That the `Copy sources into project` box is NOT ticked, this means that the project will update the files in the 
+Import your existing `.vhd` sources from your new repo folder using 'Add Files'. NOTE: That the `Copy sources into project` box is NOT ticked, this means that the project will update the files in the 
 git folder without adding all of the rubbish that Vivado normally adds.
+
+Also set the `Target language` and `Simulator language` both to `VHDL`.
 
 ## 4. Import Constraints
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/import-constraints.png" width="auto" height="auto"/>
