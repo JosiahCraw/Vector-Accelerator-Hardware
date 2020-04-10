@@ -6,6 +6,17 @@ want to clog up our computers with endless cached/sim/run files.
 
 ## Contents
 
+- [1. The Layout](#1-the-layout)
+- [2. Test-benches](#2-test-benches)
+    - [Setting up your repository](#setting-up-your-repository)
+- [3. Adding files to Vivado](#3-adding-files-to-Vivado)
+- [3.1 Manually copying files](#31-manually-copying-files)
+- [4. Help](#4-help)
+- [5. Tools](#5-tools)
+- [5.1 GHDL](#51-ghdl)
+- [6. Authors](#6-authors)
+- [TODO](#todo)
+
 ## 1. The Layout
 Your file structure should look something like this:
 
@@ -53,7 +64,7 @@ about this. However if you would like to investigate this I will include a few l
 -   [GHDL Docker](https://github.com/ghdl/docker)
 
 ## 6. Authors
-Jos Craw <jcr124@uclive.ac.nz>
+Jos Craw <jcr124@uclive.ac.nz> @jcr124
 
 ## TODO
 -   Do we want to talk about GitLab issues?
