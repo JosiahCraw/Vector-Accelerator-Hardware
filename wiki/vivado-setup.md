@@ -2,11 +2,12 @@
 This is a quick run through of how to create a new Vivado project and import your source code from the git repository that you made earlier
 
 ## Steps
-1.
-2.
+1. [Step 1](#1-create-a-new-project)
+2. [Step 2](#2-configure-project)
 3.
 4.
 5.
+
 
 ## 1. Create a new Project
 <img alt="Creating a new Vivado Project" src="https://storage.googleapis.com/enle373students/create-project.png" width="auto" height="auto"/>
