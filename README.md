@@ -34,6 +34,9 @@ user@device:~$ git clone https://eng-git.canterbury.ac.nz/enel373-2020/enel373-t
 	# Note: this will clone this temple repository
     # Copy your .vhd and .xdc files into the appropriate folders
     
+user@device:~$ cd enel373-template/
+    # Navigate into the project directory to preform the rest of the commands
+
 user@device:~$ git add .
 	# This stages the files you just added for commit
     
@@ -57,7 +60,7 @@ user@device:~$ git push -f origin master
     # if the previous command fails
 ```
  -->
-<img alt="Git Instructions for setting up your repo" src="https://storage.googleapis.com/enle373students/git-instructions-fixed.png" width="auto" height="600"/>
+<img alt="Git Instructions for setting up your repo" src="https://storage.googleapis.com/enle373students/git-instructions-v3.png" width="auto" height="700"/>
 
 ## 3. Adding files to Vivado
 There are two options for adding the git files into your project, the first is to do a manual copy, the second is to use Jesse's awesome script which is discussed further in the 
@@ -99,3 +102,4 @@ Jos Craw <jcr124@uclive.ac.nz> @jcr124
 -   Am I talking too much about the assignment?
 -   Include adding testbench sources into a Vivado project. (Would look better once the test benches are done)
 -   Should we add a .gitignore and a gitignore document
+-   Note the link is not currently correct as the project is in my personal account, not the group
