@@ -28,8 +28,36 @@ has been done to hopefully make everyone's life a little easier. This means that
 
 ## Setting up your repository
 Please use the commands below to setup your code inside this structure.
-
-<img alt="Git Instructions for setting up your repo" src="https://storage.googleapis.com/enle373students/git-instructions.png" width="auto" height="600"/>
+<!-- 
+```console
+user@device:~$ git clone https://eng-git.canterbury.ac.nz/enel373-2020/enel373-template.git
+	# Note: this will clone this temple repository
+    # Copy your .vhd and .xdc files into the appropriate folders
+    
+user@device:~$ git add .
+	# This stages the files you just added for commit
+    
+user@device:~$ git commit -m "Added my project files to template"
+	# This commits the changes to you local repository with the commit
+    # message: "Added my project files to template"'
+    
+user@device:~$ git remote set-url origin https://eng-git.canterbury.ac.nz/enel373-2020/$YOUR_PROJECT
+	# The project you cloned has the url of origin at:
+    # "https://eng-git.canterbury.ac.nz/enel373-2020/enel373-template.git"
+    # this is not the url for your group so this command changes that url to your groups project
+    
+user@device:~$ git push origin master
+	# This command pushes all of your commits to the remote (Eng Git). This
+    # command could fail as the current layout and this my be very different
+    # if this occurs use the next command.
+    
+user@device:~$ git push -f origin master
+	# This command uses the -f flag to force push to the remote repository
+    # this overwrites the remote repository with the local one. Only do this
+    # if the previous command fails
+```
+ -->
+<img alt="Git Instructions for setting up your repo" src="https://storage.googleapis.com/enle373students/git-instructions-fixed.png" width="auto" height="600"/>
 
 ## 3. Adding files to Vivado
 There are two options for adding the git files into your project, the first is to do a manual copy, the second is to use Jesse's awesome script which is discussed further in the 
