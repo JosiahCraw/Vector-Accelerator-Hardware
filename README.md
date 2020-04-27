@@ -23,8 +23,11 @@ Your file structure should look something like this:
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/filestructure.png" width="500" height="auto"/>
 
 ## 2. Test-benches
-As you should have seen, the assignment has been changed rather significantly due to the COVID-19 pandemic. As a result the ENEL373 Assignment has been changed significantly. This has affected the way that the marking is done, the tutors technical marking requirements are now in the form of available test-benches. This
-has been done to hopefully make everyone's life a little easier. This means that we will be marking using the test-benches found in the test-benches [directory](testbenches/). More info about these test-benches can be found in this directory
+As you should have seen, the assignment has been changed rather significantly due to COVID-19. As a result the 
+ENEL373 Assignment has been changed significantly. This has affected the way that the assignment is being run, 
+we will doing some of the marking using testbenches. We also hope that the examples that we give will help increase everyone's understanding of 
+testbenches. These prepared testbenches can be found in the testbench [directory](testbenches/). More info 
+about these testbenches can be found in the README of the testbench directory.
 
 ## Setting up your repository
 Please use the commands below to setup your code inside this structure.
@@ -73,7 +76,7 @@ you make the Vivado project in a different location on your computer to the sour
 
 ## 4. Help
 The tutors will still be available to help you however, we will be moving to an online drop in session format within lab hours. If you have questions/concerns outside of lab times 
-please post on the Learn forum the tutors and lecturers for the course are happy to answer your question there.
+please post them on Learn, the tutors and lecturers are happy to answer your questions there.
 
 <a name="tools"></a>
 
