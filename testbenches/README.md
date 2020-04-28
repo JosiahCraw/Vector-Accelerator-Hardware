@@ -4,6 +4,8 @@ They will be `.vhd` files, but these ones are only for use in simulation, unlike
 -   `clock_divider_1k_tb.vhd`
 -   `decoder_2_to_4_tb.vhd`
 -   `FSM_countdown.vhd`
+-   `Quad_4_bit_counter_tb.vhd`
+-   `Display_tb.vhd`
 
 We will be testing each of your modules individually with these test benches. This means you have access to all of the test cases for testing your code against.
 You are however, still expected to write one test bench of your own. This should be a little easier to accomplish as you now have several examples to dissect.
@@ -29,6 +31,38 @@ rightmost displays.
 This test bench expects a entity called `decoder_2_to_4` with a two bit selection vector and a four bit output anode 
 vector. This two bit vector represents the number for the a active screen eg. "00" for the first display, "01" for
 the second, etc.
+
+## Display Testbench
+This testbench is designed to test the display module for your reaction timer, the skeleton for this file is found
+[here](../sources/Display_Wrapper.vhd)
+
+<img alt="File structure" src="https://storage.googleapis.com/enle373students/display_tb-extract.png" width="600" height="auto"/>
+
+The above is an extract from the [Display testbench](Display_tb.vhd). The testbench is effectively made up of
+these repeating segments this segment does the following:
+-   Clears the counter to `0`
+-   Checks if the output is correct
+    -   if it isn't wait for one clock period.
+    -   if it is it moves on the the next test.
+-   The check is allowed to run four times within the loop before `ctr` is equal to `4` causing the assert 
+    condition to fail and the simulation terminates, more information about asserts can be found [here](#Assert)
+
+## Quad four bit counter testbench
+
+This testbench is designed to test your four, four bit counters.
+
+<img alt="File structure" src="https://storage.googleapis.com/enle373students/quad-four-bit-port.png" width="600" height="auto"/>
+
+This test bench expects an entity named `Quad_4_bit_counter` with the port shown above.
+-   `EN` is enable
+-   `R_SET` is to reset the counters
+-   `stage_X_q_out` is the 4 bit output of each of the counters
+-   `clk_in_ctr` is the clock input for the part
+-   `overflow` is the carry out for the counters after they exceed `9999`
+
+This testbench also uses files, more information on this can be found is the [files](#files) section below.
+
+
 
 ## FSM Test bench
 This test bench is designed to test a finite state machine that controls the decimal points countdown.
@@ -56,6 +90,20 @@ The report component allows you to control the output statement when the assert 
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/assert-example.png" width="600" height="auto"/>
 
 This will cause the simulation to report the message: `Output should be '010' (2)` if `binary_num` does not equal `010`
+
+### Files
+-   [VHDL Reference Manual](https://www.ics.uci.edu/~jmoorkan/vhdlref/filedec.html)
+
+Files allow you to read and write data in VHDL to files.
+
+#### Example
+<img alt="Function Example" src="https://storage.googleapis.com/enle373students/files-example.png" width="600" height="auto"/>
+
+Above is an example from the [Quad for bit decoder testbench](Quad_4_bit_counter_tb.vhd)
+
+In this example a file named `counter_input.txt` is being read in this file can be found [here](counter_input.txt).
+The vectors found within the files are then written into the the `check` vector eg. the first vector:
+`0000000000000000010` enables the `R_SET` line as `check(1)` is `1`, the second enables the enable line. 
 
 ### Functions
 -   [VHDL Reference Manual](https://www.ics.uci.edu/~jmoorkan/vhdlref/function.html)

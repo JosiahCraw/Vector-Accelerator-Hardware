@@ -1,0 +1,5 @@
+# Exclue all of the following Vivado folers
+ENEL373 Assignment.cache/
+ENEL373 Assignment.hw/
+ENEL373 Assignment.ip*/
+ENEL373 Assignment.sim/
