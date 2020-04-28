@@ -1,51 +1,47 @@
 # Test benches
-These are all of the test benches that your project will be tested against. 
-They will be `.vhd` files, but these ones are only for use in simulation, unlike the ones in the sources folder.
--   `clock_divider_1k_tb.vhd`
--   `decoder_2_to_4_tb.vhd`
--   `FSM_countdown.vhd`
+Your project will be tested against two test benches: 
 -   `Quad_4_bit_counter_tb.vhd`
 -   `Display_tb.vhd`
+Additionally, test benches to check the behaviour of your counter, clock divider and decoder modules are also available:
+-	`decoder_2_to_4_tb.vhd`
+-	`clock_divider_1k_tb.vhd`
 
-We will be testing each of your modules individually with these test benches. This means you have access to all of the test cases for testing your code against.
-You are however, still expected to write one test bench of your own. This should be a little easier to accomplish as you now have several examples to dissect.
+You can use any of these test benches yourself to evaluate your progress.
+Note that you will also need to write a test bench of your own. This should be a little easier to accomplish as you now have several examples to dissect.
 
 ## Clock Divider Testbench
 This testbench is designed to test the 1kHz clock divider.
 
 <img alt="Clock Divider Ports" src="https://storage.googleapis.com/enle373students/clockdivider-port.png" width="500" height="auto"/>
 
-This testbench expects an entity named `my_divider_1k` with a 100MHz input clock and tests if 1kHz signal
-is generated.
+This testbench expects an entity named `my_divider_1k` with a 100MHz input clock and tests if a 1kHz signal is generated.
 
-This testbench also demonstrates a method of making a clock signal within a test bench. However, this cannot
-be used outside test benches as `wait for X` is not a synthesizable statement. This testbench unlike the one below
-doesn't use `assert` statements which this is more information about in the [Jargon](#Jargon) section, this means that when you run a synthesis you will be given a graphed response within the Vivado simulator.
+This testbench also demonstrates a method of making a clock signal within a test bench. However, this cannot be used outside test benches as `wait for X` is not a synthesizable statement. 
+This testbench, unlike the one below, doesn't use `assert` statements – there is more information about these in the [Jargon](#Jargon) section – this means that when you run a synthesis you will be given a graphed response within the Vivado simulator.
 
 ## 2 to 4 Decoder Testbench
-This testbench is designed to test the 2 to 4 decoder that controls the anode selection for the four
-rightmost displays.
+This testbench is designed to test the 2 to 4 decoder that controls the anode selection for the four rightmost displays.
 
 <img alt="Decoder Ports" src="https://storage.googleapis.com/enle373students/2-4-decoder-port.png" width="600" height="auto"/>
 
-This test bench expects a entity called `decoder_2_to_4` with a two bit selection vector and a four bit output anode 
-vector. This two bit vector represents the number for the a active screen eg. "00" for the first display, "01" for
-the second, etc.
+This test bench expects an entity called `decoder_2_to_4` with a two bit selection vector and a four bit output anode vector. This two bit vector represents the number for the active display, e.g. "00" for the first display, "01" for the second display, and so on.
 
 ## Display Testbench
-This testbench is designed to test the display module for your reaction timer, the skeleton for this file is found
-[here](../sources/Display_Wrapper.vhd)
+This testbench is designed to test the display module for your reaction timer, the skeleton for this file is found [here](../sources/Display_Wrapper.vhd)
 
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/display_tb-extract.png" width="600" height="auto"/>
+The above is an extract from the [Display testbench](Display_tb.vhd). 
 
-The above is an extract from the [Display testbench](Display_tb.vhd). The testbench is effectively made up of
-these repeating segments this segment does the following:
--   Clears the counter to `0`
--   Checks if the output is correct
-    -   if it isn't wait for one clock period.
-    -   if it is it moves on the the next test.
--   The check is allowed to run four times within the loop before `ctr` is equal to `4` causing the assert 
-    condition to fail and the simulation terminates, more information about asserts can be found [here](#Assert)
+After set up, the test bench waits for the first anode to become high.
+If the anode does not go high after four clock cycles, an error is thrown.
+Once the first anode is high the values of the segment cathodes are checked to see that the digit `1` is displayed.
+The test bench then waits for the second anode to go high. Because the order in which the anodes are activated is not specified, the test bench may have to wait for up to three more clock cycles for this to happen.
+Once the second anode is high, the values on the segment cathodes are checked again: this time `2` is displayed.
+The test bench then cycles through until the third anode is high and checks that the segment cathodes are displaying `3`; after this the fourth anode is checked and the segments’ ability to display `4` is tested.
+
+If the test bench gets to this point successfully we can have confidence that the anodes are cycling correctly, hence no more asserts are run on the anodes themselves. Instead, the segment cathodes are checked for their ability to display the digits `5`, `6`, `7`, `8`, `9` and `0`. The test bench does not check if the segments can display a blank character, ` `, although you may be interested in implementing this ability in your own code.
+
+Note that the test bench will fail and quit if any of the anodes do not go high at least once every four clock cycles. The test bench will display an error if any of the numbers are displayed incorrectly, but it will keep running. This behaviour is managed by [asserts](#Assert).
 
 ## Quad four bit counter testbench
 
@@ -62,25 +58,13 @@ This test bench expects an entity named `Quad_4_bit_counter` with the port shown
 
 This testbench also uses files, more information on this can be found is the [files](#files) section below.
 
-
-
-## FSM Test bench
-This test bench is designed to test a finite state machine that controls the decimal points countdown.
-
-<img alt="File structure" src="https://storage.googleapis.com/enle373students/fsm_countdown-component.png" width="600" height="auto"/>
-
-This test bench expects an entity called `FSM_countdown` with the above port. It will test that, with a 1Hz clock applied to the input one decimal point is removed every second 
-then until all of the decimal points are turned off.
-
-
 ## Jargon
 A Glossary of the test bench code used:
 
 ### Assert
 -   [VHDL Reference Manual](http://www.vhdl.renerta.com/source/vhd00007.htm)
 
-This is used in test benches to more quickly see which of your tests are failing. Although the simulation graphs are nice, this allows you to immediately see which test failed with out 
-having to look through the graphs to check if everything is ok. 
+This is used in test benches to more quickly see which of your tests are failing. Although the simulation graphs are nice, this allows you to immediately see which test failed with out having to look through the graphs to check if everything is ok. 
 
 #### Report
 The report component allows you to control the output statement when the assert fails. eg. "Output is not high after button press".
