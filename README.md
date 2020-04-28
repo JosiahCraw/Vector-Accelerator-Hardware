@@ -104,11 +104,5 @@ Jos Craw <jcr124@uclive.ac.nz> @jcr124
 
 ## TODO
 -   Do we want to talk about GitLab issues?
--   Am I talking too much about the assignment?
--   Include adding testbench sources into a Vivado project. (Would look better once the test benches are done)
--   Should we add a .gitignore and a gitignore document
 -   Note the link is not currently correct as the project is in my personal account, not the group
--   update testbench list with correct list of testbenches students are provided.
--   update to say that the students will make the testbench for the FSM we provide
--   I claim that we test every module with a testbench, as far as I'm aware this is not true? 
 -   For the Quad four bit testbench I made the path relative, it looks like this should work but I haven't tested it [source](https://www.xilinx.com/support/answers/66843.html)
