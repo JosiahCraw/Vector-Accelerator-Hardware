@@ -31,6 +31,7 @@ This test bench expects an entity called `decoder_2_to_4` with a two bit selecti
 This testbench is designed to test the display module for your reaction timer, the skeleton for this file is found [here](../sources/Display_Wrapper.vhd)
 
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/display_tb-extract.png" width="600" height="auto"/>
+
 The above is an extract from the [Display testbench](Display_tb.vhd). 
 
 After set up, the test bench waits for the first anode to become high.
