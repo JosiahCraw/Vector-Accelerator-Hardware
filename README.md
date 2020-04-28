@@ -87,7 +87,9 @@ the directions for which are available in Jesse's repository or use `pip`.
 
 <img alt="File structure" src="https://storage.googleapis.com/enle373students/pip-install-fixed.png" width="auto" height="250"/>
 
-Remember that to use this script you must have python installed, for the Linux users install using your preferred package manager for Windows the download can be found [here](https://www.python.org/downloads/windows/) Note: The script has only been tested for Python3 so make sure that is the version you have installed.
+Remember that to use this script you must have python installed. On Linux, install python using your preferred package manager.
+On Windows, download python [here](https://www.python.org/downloads/windows/).
+Note: The script has only been tested for Python3 (not Python 2), so make sure that is the version you have installed.
 
 ### 5.1 GHDL
 For those interested there is a project called GHDL that allows you to compile VHDL files into C. This can make testing easier, however it is in no way expected for you to know 
