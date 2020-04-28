@@ -2,6 +2,7 @@
 Your project will be tested against two test benches: 
 -   `Quad_4_bit_counter_tb.vhd`
 -   `Display_tb.vhd`
+
 Additionally, test benches to check the behaviour of your counter, clock divider and decoder modules are also available:
 -	`decoder_2_to_4_tb.vhd`
 -	`clock_divider_1k_tb.vhd`
