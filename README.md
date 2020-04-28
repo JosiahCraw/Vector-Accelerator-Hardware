@@ -20,7 +20,7 @@ want to clog up our computers with endless cached/sim/run files.
 ## 1. The Layout
 Your file structure should look something like this:
 
-<img alt="File structure" src="https://storage.googleapis.com/enle373students/filestructure.png" width="500" height="auto"/>
+<img alt="File structure" src=https://storage.googleapis.com/enle373students/templatestructure.png" width="500" height="auto"/>
 
 ## 2. Test-benches
 As you should have seen, the assignment has been changed rather significantly due to COVID-19. As a result the 
