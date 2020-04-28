@@ -1,7 +1,7 @@
 # ENEL373 Assignment
 This repo is arranged in the same way that is expected for the ENEL373 2020 Assignment submission.
 It is expected that students use this format while working on the assignment as it decreases the
-number of files on Eng Git as well as the amount of storage used. Tutors will also expect this layout when helping you, we don't
+number of files on EngGit as well as the amount of storage used. Tutors will also expect this layout when helping you, we don't
 want to clog up our computers with endless cached/sim/run files.
 
 ## Contents
@@ -25,7 +25,7 @@ Your file structure should look something like this:
 ## 2. Test-benches
 As you should have seen, the assignment has been changed rather significantly due to COVID-19. As a result the 
 ENEL373 Assignment has been changed significantly. This has affected the way that the assignment is being run, 
-we will doing some of the marking using testbenches. We also hope that the examples that we give will help increase everyone's understanding of 
+we will be doing some of the marking using testbenches. We also hope that the examples that we give will help increase everyone's understanding of 
 testbenches. These prepared testbenches can be found in the testbench [directory](testbenches/). More info 
 about these testbenches can be found in the README of the testbench directory.
 
@@ -76,7 +76,7 @@ you make the Vivado project in a different location on your computer to the sour
 
 ## 4. Help
 The tutors will still be available to help you however, we will be moving to an online drop in session format within lab hours. If you have questions/concerns outside of lab times 
-please post them on Learn, the tutors and lecturers are happy to answer your questions there.
+please post them on Learn, the tutors and lecturers are happy to answer your questions there. Please ensure your code on GIT is current and include your group number in your forum post. 
 
 <a name="tools"></a>
 
@@ -93,7 +93,7 @@ Note: The script has only been tested for Python3 (not Python 2), so make sure t
 
 ### 5.1 GHDL
 For those interested there is a project called GHDL that allows you to compile VHDL files into C. This can make testing easier, however it is in no way expected for you to know 
-about this. However if you would like to investigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or
+about this. However, if you would like to investigate this I will include a few links as it make it easier to automate and run VHDL test-benches on lower power machines or
  automated using CI/CD pipelines
 
 -   [GHDL](https://github.com/ghdl/ghdl)

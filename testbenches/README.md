@@ -66,7 +66,7 @@ A Glossary of the test bench code used:
 ### Assert
 -   [VHDL Reference Manual](http://www.vhdl.renerta.com/source/vhd00007.htm)
 
-This is used in test benches to more quickly see which of your tests are failing. Although the simulation graphs are nice, this allows you to immediately see which test failed with out having to look through the graphs to check if everything is ok. 
+This is used in test benches to quickly see which of your tests are failing. Although the simulation graphs are nice, this allows you to immediately see which test failed with out having to look through the graphs to check if everything is ok. 
 
 #### Report
 The report component allows you to control the output statement when the assert fails. eg. "Output is not high after button press".
