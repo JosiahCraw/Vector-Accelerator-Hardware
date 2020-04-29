@@ -9,7 +9,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity Display_Wrapper is
-  port (CLK     : in STD_LOGIC;
+  port (CLK     : in STD_LOGIC; -- This should be your 'display' clock, the clock that is used to switch between anodes
         Message : in STD_LOGIC_VECTOR (15 downto 0);
         CA, CB, CC, CD, CE, CF, CG : out STD_LOGIC; -- Segment cathodes
         AN 		: out STD_LOGIC_VECTOR ( 3 downto 0));
