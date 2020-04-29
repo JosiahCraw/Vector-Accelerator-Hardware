@@ -14,7 +14,7 @@ end entity;
 
 architecture behavioral of Display_tb is
 component Display_Wrapper is
-  port (CLK     : in STD_LOGIC;
+  port (CLK     : in STD_LOGIC; -- Your display clock
         Message : in STD_LOGIC_VECTOR (15 downto 0);
         CA, CB, CC, CD, CE, CF, CG : out STD_LOGIC;
                                  -- Segment cathodes
