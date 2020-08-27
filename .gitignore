@@ -1,6 +1,7 @@
-# Exclue all of the following Vivado folers
+# Exclude all of the following Vivado folders
 Accelerator.cache/
 Accelerator.hw/
 Accelerator.ip*/
 Accelerator.sim/
 Accelerator.runs/
+
