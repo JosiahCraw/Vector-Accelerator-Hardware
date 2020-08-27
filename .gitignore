@@ -1,5 +1,6 @@
 # Exclue all of the following Vivado folers
-ENEL373 Assignment.cache/
-ENEL373 Assignment.hw/
-ENEL373 Assignment.ip*/
-ENEL373 Assignment.sim/
+Accelerator.cache/
+Accelerator.hw/
+Accelerator.ip*/
+Accelerator.sim/
+Accelerator.runs/

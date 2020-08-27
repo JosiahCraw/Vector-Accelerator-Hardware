@@ -32,15 +32,32 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity reg_32_Bit is
-    Port ( in : in STD_LOGIC_VECTOR (32 downto 0);
-           out : out STD_LOGIC_VECTOR (32 downto 0);
+    Port ( d : in STD_LOGIC_VECTOR (31 downto 0);
+           q : out STD_LOGIC_VECTOR (31 downto 0);
+           en: in STD_LOGIC;
            clk : in STD_LOGIC;
            rst : in STD_LOGIC);
 end reg_32_Bit;
 
 architecture Behavioral of reg_32_Bit is
 
+signal data : std_logic_vector(31 downto 0);
+
 begin
 
+    process (clk)
+    begin
+        if en = '1' then
+            if rising_edge(clk) then
+                data <= d;
+            end if;
+            
+            if (rst = '1') then
+                data <= X"00000000";
+            end if;
+        end if;
+    end process;
+    
+    q <= data;
 
 end Behavioral;
