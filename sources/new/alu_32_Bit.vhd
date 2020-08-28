@@ -58,6 +58,8 @@ begin
                 output <= a or b;
             when X"02" =>
                 output <= a and b;
+            when others =>
+                output  <= X"00000000";
         end case;
     end if;
     

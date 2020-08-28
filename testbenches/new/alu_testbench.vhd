@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use std.env.finish;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -108,6 +109,7 @@ begin
         wait for CLK_period;
         assert (output = X"00000010") report "Incorrect Result" severity failure;
         
+    assert (false) report "Tests Completed Successfully" severity failure;
     end process;
 
 end Behavioral;
