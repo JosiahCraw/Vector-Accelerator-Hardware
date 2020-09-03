@@ -4,4 +4,6 @@ Accelerator.hw/
 Accelerator.ip*/
 Accelerator.sim/
 Accelerator.runs/
-
+*.o
+*.cf
+alu_testbench
