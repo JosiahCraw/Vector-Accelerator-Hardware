@@ -54,6 +54,8 @@ signal in_a : std_logic_vector(31 downto 0);
 signal in_b : std_logic_vector(31 downto 0);
 signal instruction : std_logic_vector(7 downto 0);
 
+signal looping : boolean := true;
+
 begin
 
     UUT: alu_32_Bit
@@ -61,15 +63,20 @@ begin
         
     clock_process : process
     begin
-        clock <= '0';
-        wait for CLK_period / 2;
-        clock <= '1';
-        wait for CLK_period / 2;
+        while looping = true loop
+            clock <= '0';
+            wait for CLK_period / 2;
+            clock <= '1';
+            wait for CLK_period / 2;
+        end loop;
+        wait;
     end process;
     
     process is
     begin
-    
+        looping <= true;
+        wait for CLK_period/2;
+        
         in_a <= X"00000000";
         in_b <= X"00000001";
         instruction <= X"00";
@@ -188,7 +195,9 @@ begin
         wait for CLK_period;
         assert (output = X"000000FC") report "Incorrect Result" severity failure;
 
-    assert (false) report "Tests Completed Successfully" severity failure;
+    -- assert (false) report "Tests Completed Successfully" severity failure;
+    looping <= false;
+    wait;
     end process;
 
 end Behavioral;
