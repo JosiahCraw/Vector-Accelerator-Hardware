@@ -58,7 +58,7 @@ end component;
 
 begin
     unit_reg : for i in 0 to vec_length-1 generate
-        regx reg_32_Bit port_map(
+        regx reg_32_Bit port map(
             d => d((i*32)+31 downto i*32),
             q => q((i*32)+31 downto i*32),
             en => en,

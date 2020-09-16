@@ -195,7 +195,7 @@ begin
         wait for CLK_period;
         assert (output = X"000000FC") report "Incorrect Result" severity failure;
 
-    -- assert (false) report "Tests Completed Successfully" severity failure;
+    report "Tests Completed Successfully";
     looping <= false;
     wait;
     end process;
