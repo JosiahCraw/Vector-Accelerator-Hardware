@@ -7,3 +7,4 @@ Accelerator.runs/
 *.o
 *.cf
 alu_testbench
+vec_alu_testbench
