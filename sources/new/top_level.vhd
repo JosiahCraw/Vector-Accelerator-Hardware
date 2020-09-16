@@ -32,7 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity top_level is
---  Port ( );
+    Port ( UART_TXD_IN : in std_logic,
+           UART_RXD_OUT : out std_logic);
 end top_level;
 
 architecture Behavioral of top_level is
