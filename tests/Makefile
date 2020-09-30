@@ -1,4 +1,5 @@
 .PHONY : help alu vec_alu all
+
 help:
 	@echo "Usage: make [COMPONENT: alu, vec_alu]"
 

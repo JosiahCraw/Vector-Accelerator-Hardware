@@ -29,7 +29,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
---use UNISIM.VComponents.all;
+--use UNISIM.VComponents.all
 
 entity top_level is
     Port ( UART_TXD_IN : in std_logic,
