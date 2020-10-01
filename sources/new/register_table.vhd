@@ -28,7 +28,7 @@ entity register_table is
     generic (
         STANDARD_REG_COUNT : integer := 16;
         VECTOR_REG_COUNT   : integer := 16;
-        VECTOR_ADDR_LEN    : integer := 5;
+        VECTOR_ADDR_LEN    : integer := 8;
         VECTOR_LENGTH      : integer := 32
     );
     Port ( 

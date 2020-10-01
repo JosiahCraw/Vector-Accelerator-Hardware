@@ -47,7 +47,7 @@ component register_table is
     generic (
         STANDARD_REG_COUNT : integer := 16;
         VECTOR_REG_COUNT   : integer := 16;
-        VECTOR_ADDR_LEN    : integer := 5;
+        VECTOR_ADDR_LEN    : integer := 8;
         VECTOR_LENGTH      : integer := 32
     );
     Port ( 
@@ -64,7 +64,7 @@ signal clock    : std_logic := '0';
 signal rst      : std_logic := '0';
 signal wr       : std_logic := '0';
 
-signal address  : std_logic_vector(4 downto 0);
+signal address  : std_logic_vector(7 downto 0);
 signal data_out : std_logic_vector((vec_len*32)-1 downto 0);
 signal data_in  : std_logic_vector((vec_len*32)-1 downto 0);
 
@@ -99,27 +99,27 @@ begin
         looping <= true;
         
         wr <= '1';
-        address <= "00000";
+        address <= "00000000";
         wait for CLK_period;
         data_in <= X"00000001000000010000000100000001";
         wait for CLK_period;
         
-        address <= "00001";
+        address <= "00000001";
         wait for CLK_period;
         data_in <= X"000F00000000F00000000F00000000F0";
         wait for CLK_period;
 
-        address <= "00010";
+        address <= "00000010";
         wait for CLK_period;
         data_in <= X"F0000000F000000FF000000FFFFFFFFF";
         wait for CLK_period;
 
-        address <= "10000";
+        address <= "00010000";
         wait for CLK_period;
         data_in <= X"F0000000F000000FF000000F00000000";
         wait for CLK_period;
 
-        address <= "10001";
+        address <= "00010001";
         wait for CLK_period;
         data_in <= X"000000000000000000000000FFFFFFFF";
         wait for CLK_period;
@@ -128,28 +128,28 @@ begin
 
         -- Do Checks
 
-        address <= "00000";
+        address <= "00000000";
         wait for CLK_period;
         assert (data_out = X"00000001000000010000000100000001") report "Incorrect Result" severity failure;
         wait for CLK_period;
 
-        address <= "00001";
+        address <= "00000001";
         wait for CLK_period;
         assert (data_out = X"000F00000000F00000000F00000000F0") report "Incorrect Result" severity failure;
         wait for CLK_period;
 
-        address <= "00010";
+        address <= "00000010";
         wait for CLK_period;
         assert (data_out = X"F0000000F000000FF000000FFFFFFFFF") report "Incorrect Result" severity failure;
         wait for CLK_period;
 
-        address <= "10000";
+        address <= "00010000";
         wait for CLK_period;
         assert (data_out(35 downto 32) = "ZZZZ") report "Incorrect Result" severity failure;
         assert (data_out(31 downto 0) = X"00000000") report "Incorrect Result" severity failure;
         wait for CLK_period;
 
-        address <= "10001";
+        address <= "00010001";
         wait for CLK_period;
         assert ( data_out(31 downto 0) = X"FFFFFFFF") report "Incorrect Result" severity failure;
         assert not ( data_out = X"000000000000000000000000FFFFFFFF") report "Incorrect Result" severity failure;
