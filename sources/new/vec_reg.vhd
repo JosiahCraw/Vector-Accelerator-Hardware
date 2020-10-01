@@ -31,20 +31,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity vec_mem is
+entity vec_reg is
     generic (
         vec_length : integer := 32
     );
     Port (
-        d : in STD_LOGIC_VECTOR ((vec_length*int_size)-1 downto 0);
-        q : out STD_LOGIC_VECTOR ((vec_length*int_size)-1 downto 0);
+        d : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        q : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
         en: in STD_LOGIC;
         clk : in STD_LOGIC;
         rst : in STD_LOGIC
     );
-end vec_mem;
+end vec_reg;
 
-architecture Behavioral of vec_mem is
+architecture Behavioral of vec_reg is
 
 signal data : std_logic_vector(31 downto 0);
 
@@ -58,7 +58,7 @@ end component;
 
 begin
     unit_reg : for i in 0 to vec_length-1 generate
-        regx reg_32_Bit port map(
+        regx : reg_32_Bit port map(
             d => d((i*32)+31 downto i*32),
             q => q((i*32)+31 downto i*32),
             en => en,

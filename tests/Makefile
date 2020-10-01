@@ -57,9 +57,9 @@ ram:
 
 
 clean:
-	rm *.o *.cf vec_alu_testbench  alu_testbench ram_testbench register_table_testbench vec_reg_testbench reg_testbench || true
+	rm *.o *.cf vec_alu_testbench alu_testbench ram_testbench vec_reg_testbench reg_testbench || true
 
-all: alu vec_alu ram register_table reg vec_reg
-	@echo "Testing all..."
+all: alu vec_alu ram reg vec_reg
+	@echo "Testing Complete!!"
 
 

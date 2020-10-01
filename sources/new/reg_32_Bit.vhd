@@ -35,17 +35,16 @@ architecture Behavioral of reg_32_Bit is
 signal data : std_logic_vector(31 downto 0);
 
 begin
-
-    process (clk)
+    process (clk, rst)
     begin
+        if rst = '1' then
+            data <= X"00000000";
+        end if;
         if en = '1' then
             if rising_edge(clk) then
                 data <= d;
             end if;
             
-            if (rst = '1') then
-                data <= X"00000000";
-            end if;
         end if;
     end process;
     
