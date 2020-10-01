@@ -21,18 +21,21 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_MATH_REAL.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use ieee.math_real.all;
 
 entity register_table is
     generic (
         STANDARD_REG_COUNT : integer := 16;
         VECTOR_REG_COUNT   : integer := 16;
+        VECTOR_ADDR_LEN    : integer := 5;
         VECTOR_LENGTH      : integer := 32
     );
     Port ( 
         d    : in STD_LOGIC_VECTOR ((32*VECTOR_LENGTH)-1 downto 0);
         q    : out STD_LOGIC_VECTOR ((32*VECTOR_LENGTH)-1 downto 0);
-        addr : in STD_LOGIC_VECTOR (integer(ceil(log2(real(VECTOR_LENGTH))))-1 downto 0);
+        addr : in STD_LOGIC_VECTOR (VECTOR_ADDR_LEN-1 downto 0);
+        wr   : in STD_LOGIC;
         clk  : in STD_LOGIC;
         rst  : in STD_LOGIC
     );
@@ -42,9 +45,10 @@ architecture Behavioral of register_table is
 
 component reg_32_Bit is
     Port (  
-        d : in STD_LOGIC_VECTOR (31 downto 0);
-        q : out STD_LOGIC_VECTOR (31 downto 0);
-        en: in STD_LOGIC;
+        d   : in STD_LOGIC_VECTOR (31 downto 0);
+        q   : out STD_LOGIC_VECTOR (31 downto 0);
+        en  : in STD_LOGIC;
+        wr  : in STD_LOGIC;
         clk : in STD_LOGIC;
         rst : in STD_LOGIC
     );
@@ -55,25 +59,42 @@ component vec_reg is
         vec_length : integer := 32
     );
     Port (
-        d : in STD_LOGIC_VECTOR ((vec_length*int_size)-1 downto 0);
-        q : out STD_LOGIC_VECTOR ((vec_length*int_size)-1 downto 0);
-        en: in STD_LOGIC;
+        d   : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        q   : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        en  : in STD_LOGIC;
+        wr  : in STD_LOGIC;
         clk : in STD_LOGIC;
         rst : in STD_LOGIC
     );
 end component;
 
+signal en : std_logic_vector(VECTOR_REG_COUNT+STANDARD_REG_COUNT-1 downto 0);
+signal data_in  : std_logic_vector ((VECTOR_LENGTH*32)-1 downto 0);
+signal data_out : std_logic_vector ((VECTOR_LENGTH*32)-1 downto 0);
+
 begin
+    process(addr, rst)
+    variable addr_state : std_logic_vector(VECTOR_REG_COUNT+STANDARD_REG_COUNT-1 downto 0);
+    begin
+        addr_state := std_logic_vector(to_unsigned(0, addr_state'length));
+        addr_state(to_integer(unsigned(addr))) := '1';
+        
+        if rst = '1' then
+            addr_state := std_logic_vector(to_unsigned(0, addr_state'length));
+        end if;
+        en <= addr_state;
+    end process;
 
     reg_gen_vec : for i in 0 to VECTOR_REG_COUNT-1 generate
-        regx : vec_mem
+        regx : vec_reg
         generic map(
             vec_length => VECTOR_LENGTH
         )
         port map(
-            d => d,
-            q => q,
-            en =>  '1' when addr = to_unsigned(i, addr'length) else '0',
+            d => data_in,
+            q => data_out,
+            en => en(i),
+            wr => wr,
             clk => clk,
             rst => rst
         );
@@ -81,14 +102,16 @@ begin
 
     reg_gen_std : for i in VECTOR_REG_COUNT to VECTOR_REG_COUNT+STANDARD_REG_COUNT-1 generate
         regx : reg_32_Bit port map(
-            d => d(31 downto 0),
-            q => q(31 downto 0),
-            en =>  '1' when addr = to_unsigned(i, addr'length) else '0',
+            d => data_in(31 downto 0),
+            q => data_out(31 downto 0),
+            en => en(i),
+            wr => wr,
             clk => clk,
             rst => rst
         );
     end generate reg_gen_std ; -- alu_gen
-    
-    q <= data;
 
+    data_in <= d;
+    q <= data_out;
+    
 end Behavioral;

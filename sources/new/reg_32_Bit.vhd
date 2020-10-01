@@ -23,31 +23,31 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity reg_32_Bit is
-    Port ( d : in STD_LOGIC_VECTOR (31 downto 0);
-           q : out STD_LOGIC_VECTOR (31 downto 0);
-           en: in STD_LOGIC;
+    Port ( d   : in STD_LOGIC_VECTOR  (31 downto 0);
+           q   : out STD_LOGIC_VECTOR (31 downto 0);
+           en  : in STD_LOGIC;
+           wr  : in STD_LOGIC;
            clk : in STD_LOGIC;
            rst : in STD_LOGIC);
 end reg_32_Bit;
 
 architecture Behavioral of reg_32_Bit is
 
-signal data : std_logic_vector(31 downto 0);
-
 begin
-    process (clk, rst)
+    process (clk, rst, en, q, d)
+    variable data : std_logic_vector(31 downto 0) := X"00000000";
     begin
         if rst = '1' then
-            data <= X"00000000";
+            data := X"00000000";
         end if;
         if en = '1' then
-            if rising_edge(clk) then
-                data <= d;
+            if rising_edge(clk) and wr = '1' then
+                data := d;
             end if;
-            
+            q <= data;
+        else
+            q <= "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
         end if;
     end process;
-    
-    q <= data;
 
 end Behavioral;

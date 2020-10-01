@@ -36,9 +36,10 @@ entity vec_reg is
         vec_length : integer := 32
     );
     Port (
-        d : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
-        q : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
-        en: in STD_LOGIC;
+        d   : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        q   : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        en  : in STD_LOGIC;
+        wr  : in STD_LOGIC;
         clk : in STD_LOGIC;
         rst : in STD_LOGIC
     );
@@ -49,9 +50,10 @@ architecture Behavioral of vec_reg is
 signal data : std_logic_vector(31 downto 0);
 
 component reg_32_Bit is
-    Port ( d : in STD_LOGIC_VECTOR (31 downto 0);
-           q : out STD_LOGIC_VECTOR (31 downto 0);
-           en: in STD_LOGIC;
+    Port ( d   : in STD_LOGIC_VECTOR (31 downto 0);
+           q   : out STD_LOGIC_VECTOR (31 downto 0);
+           en  : in STD_LOGIC;
+           wr  : in STD_LOGIC;
            clk : in STD_LOGIC;
            rst : in STD_LOGIC);
 end component; 
@@ -62,6 +64,7 @@ begin
             d => d((i*32)+31 downto i*32),
             q => q((i*32)+31 downto i*32),
             en => en,
+            wr => wr,
             clk => clk,
             rst => rst
         );

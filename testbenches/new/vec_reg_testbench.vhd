@@ -30,6 +30,15 @@ end vec_reg_testbench;
 
 architecture Behavioral of vec_reg_testbench is
 
+    function slv_to_string ( a: std_logic_vector) return string is
+        variable b : string (a'length-1 downto 1) := (others => NUL);
+    begin
+            for i in a'length-1 downto 1 loop
+            b(i) := std_logic'image(a((i-1)))(2);
+            end loop;
+        return b;
+    end function;
+
 constant CLK_period : time := 500 ns;
 
 component vec_reg is
@@ -37,9 +46,10 @@ component vec_reg is
         vec_length : integer := 32
     );
     Port (
-        d : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
-        q : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
-        en: in STD_LOGIC;
+        d   : in STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        q   : out STD_LOGIC_VECTOR ((vec_length*32)-1 downto 0);
+        en  : in STD_LOGIC;
+        wr  : in STD_LOGIC;
         clk : in STD_LOGIC;
         rst : in STD_LOGIC
     );
@@ -47,7 +57,8 @@ end component;
 
 signal clock    : std_logic := '0';
 signal en       : std_logic := '0';
-signal rst      : std_logic;
+signal rst      : std_logic := '0';
+signal wr       : std_logic := '0';
 
 signal data_out : std_logic_vector(127 downto 0);
 signal data_in  : std_logic_vector(127 downto 0);
@@ -63,6 +74,7 @@ begin
             d => data_in, 
             q => data_out, 
             en => en,
+            wr => wr,
             rst => rst,
             clk => clock
         );
@@ -83,6 +95,7 @@ begin
         looping <= true;
         
         en <= '1';
+        wr <= '1';
         data_in <= X"00000001000000010000000100000001";
         wait for CLK_period;
         assert (data_out = X"00000001000000010000000100000001") report "Incorrect Result" severity failure;
@@ -90,15 +103,23 @@ begin
         data_in <= X"000F00000000F00000000F00000000F0";
         wait for CLK_period;
         assert (data_out = X"000F00000000F00000000F00000000F0") report "Incorrect Result" severity failure;
+
+        wr <= '0';
+        data_in <= X"000F00000000F00000000F00000000FF";
+        wait for CLK_period;
+        assert (data_out = X"000F00000000F00000000F00000000F0") report "Incorrect Result" severity failure;
+        
+        wr <= '1';
         en <= '0';
 
         wait for CLK_period;
 
         data_in <= X"F0000000F000000FF000000FFFFFFFFF";
         wait for CLK_period;
-        assert (data_out = X"000F00000000F00000000F00000000F0") report "Incorrect Result" severity failure;
+        assert (data_out = "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ") report "Incorrect Result" severity failure;
 
         rst <= '1';
+        en <= '1';
         wait for CLK_period;
         assert (data_out = X"00000000000000000000000000000000") report "Incorrect Result" severity failure;
         
