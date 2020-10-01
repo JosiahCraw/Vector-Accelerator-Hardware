@@ -46,11 +46,11 @@ component vec_alu is
         vec_length : integer := 32
     );
     Port ( 
-        a : in STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
-        b : in STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
-        res : out STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
-        instr : in STD_LOGIC_VECTOR (7 downto 0);
-        clk : in STD_LOGIC
+        a     : in  STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
+        b     : in  STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
+        res   : out STD_LOGIC_VECTOR ((32*vec_length)-1 downto 0);
+        instr : in  STD_LOGIC_VECTOR (7 downto 0);
+        clk   : in  STD_LOGIC
     );
 end component;
 
@@ -98,9 +98,9 @@ begin
         in_b(127 downto 96) <= X"00000001";
 
         wait for CLK_period;
-        assert (output(31 downto 0) = X"00000001") report "Incorrect Result" severity failure;
-        assert (output(63 downto 32) = X"00000002") report "Incorrect Result" severity failure;
-        assert (output(95 downto 64) = X"00000010") report "Incorrect Result" severity failure;
+        assert (output(31 downto 0)   = X"00000001") report "Incorrect Result" severity failure;
+        assert (output(63 downto 32)  = X"00000002") report "Incorrect Result" severity failure;
+        assert (output(95 downto 64)  = X"00000010") report "Incorrect Result" severity failure;
         assert (output(127 downto 96) = X"00000000") report "Incorrect Result" severity failure;
 
         report "Tests Completed Successfully";
